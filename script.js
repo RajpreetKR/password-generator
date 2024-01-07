@@ -35,20 +35,31 @@ function getPasswordOptions() {
     alert("Error. At least one character type needs to be selected. Please try again.")
     return;
   }
+
+  return {
+    passwordLength,
+    addLowercase,
+    addUppercase,
+    addNumbers,
+    addSpecialChar
+  };
 }
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  console.log("You clicked the button"); 
   let options = getPasswordOptions();
 
-  return "Generated Password will be here in the future" // testing to see if the button works
+  let characters;
+  let password;
+
+  return password; 
 }
 
 // Get references to the #generate element
