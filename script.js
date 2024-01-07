@@ -16,18 +16,25 @@ function getPasswordOptions() {
 
   if (passwordLength === null) {
     alert("Error! User canceled the password generation.");
-    return; // Exit the function if the input is null
+    return; // exit the function if the input is null
   }
 
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Invalid password length. Please enter a number between 8 and 128.");
-    return; // Exit the function if the input is invalid
+    return; // exit the function if the input is invalid
   }
 
+  // this will prompt the user for what character types they wish to use in their password
   const addLowercase = confirm("Would you like to use lowercase letters in your password?");
   const addUppercase = confirm("Would you like to use uppercase letters in your password?");
   const addNumbers = confirm("Would you like to use numbers in your password?");
   const addSpecialChar = confirm("Would you like to use special characters in your password?");
+
+  // checking to see if the user has selected at least 1 character type
+  if (!addLowercase && !addUppercase && !addNumbers && !addSpecialChar) {
+    alert("Error. At least one character type needs to be selected. Please try again.")
+    return;
+  }
 }
 
 

@@ -3,3 +3,4 @@
 
 
 https://discuss.codecademy.com/t/how-to-validate-a-range-of-number-input-in-javascript-and-end-the-loop-with-a-designated-input/616362
+https://stackoverflow.com/questions/31737867/validate-user-input-from-prompt-in-javascript
