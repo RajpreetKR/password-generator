@@ -24,8 +24,10 @@ function getPasswordOptions() {
     return; // Exit the function if the input is invalid
   }
 
-  // The input is valid if the user gets to here
-  return passwordLength;
+  const addLowercase = confirm("Would you like to use lowercase letters in your password?");
+  const addUppercase = confirm("Would you like to use uppercase letters in your password?");
+  const addNumbers = confirm("Would you like to use numbers in your password?");
+  const addSpecialChar = confirm("Would you like to use special characters in your password?");
 }
 
 
