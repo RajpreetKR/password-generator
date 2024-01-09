@@ -19,7 +19,7 @@ function getPasswordOptions() {
     return; // exit the function if the input is null
   }
 
-  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) { // isNaN checks if it's not a number
     alert("Invalid password length. Please enter a number between 8 and 128.");
     return; // exit the function if the input is invalid
   }
@@ -32,7 +32,7 @@ function getPasswordOptions() {
 
   // checking to see if the user has selected at least 1 character type
   if (!addLowercase && !addUppercase && !addNumbers && !addSpecialChar) {
-    alert("Error. At least one character type needs to be selected. Please try again.")
+    alert("Error. At least one character type needs to be selected. Please try again.");
     return;
   }
 
@@ -45,7 +45,6 @@ function getPasswordOptions() {
   };
 }
 
-
 // Function for getting a random element from an array
 function getRandom(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -56,8 +55,28 @@ function getRandom(arr) {
 function generatePassword() {
   let options = getPasswordOptions();
 
-  let characters;
-  let password;
+  let characters = []; // missed the empty array here
+  let password = ""; // missed the empty string here
+
+  if (options.addLowercase) {
+    characters = characters.concat(lowerCasedCharacters);
+  }
+
+  if (options.addUppercase) {
+    characters = characters.concat(upperCasedCharacters);
+  }
+
+  if (options.addNumbers) {
+    characters = characters.concat(numericCharacters);
+  }
+
+  if (options.addSpecialChar) {
+    characters = characters.concat(specialCharacters);
+  }
+
+  for (let i=0; i<options.passwordLength; i++) {
+    password += getRandom(characters);
+  }
 
   return password; 
 }
